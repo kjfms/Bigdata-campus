@@ -50,3 +50,4 @@
 ### 2. 분석 준비
 
 ##### 분석 개요
+<img src = https://Bigdata-campus/분석개요.png width="500" height="300"/>
