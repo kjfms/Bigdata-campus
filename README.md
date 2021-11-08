@@ -15,7 +15,7 @@
 
 - 이러한 미래 식량 부족 문제의 대안으로, '식용 곤충'이 크게 부각되고 있으며, 전세계 뿐 아니라 국내에서도 식용곤충에 대한 관심과 시장은 확대되는 추세 
 
-<img src = https://user-images.githubusercontent.com/68065313/140670355-b3fac443-2e15-49c0-b6be-5b77e327f1b7.png width="500" height="400"/>
+<img src = https://user-images.githubusercontent.com/68065313/140670355-b3fac443-2e15-49c0-b6be-5b77e327f1b7.png width="500" height="300"/>
 
 
 ###### 식용 곤충에 대한 부정적 인식
@@ -30,11 +30,11 @@
 ###### 식용 곤충와 MZ세대
 - MZ세대가 미래 식용 곤충 소비의 주 축이 될것임에도 불구하고, 연령대가 낮아질수록 식용 곤충의 구매, 섭취 경험 및 의사는 떨어지는 실태
 * 향후 구매 및 섭취 의사 또한 2,30대 22.5%, 4.50대 44.6%, 60대 이상 70.9%로 연령이 증가할수록 높음
-<img src = https://user-images.githubusercontent.com/68065313/140671009-8404c4a2-0005-4036-8161-17adba3e38eb.png width="500" height="500"/>
+<img src = https://user-images.githubusercontent.com/68065313/140671009-8404c4a2-0005-4036-8161-17adba3e38eb.png width="500" height="400"/>
 
 - ‘에코워리어’, ‘그린슈머’, ‘제로웨이스트 챌린지’ 등 MZ세대를 중심으로 나타나는 소비 트렌드는 MZ세대의 미래 환경 관심도가 높다는 것을 나타냄
 
-<img src = https://user-images.githubusercontent.com/68065313/140671154-d2c71cc8-c3f8-4b7d-a03c-9f664739c71d.png width="500" height="500"/>
+<img src = https://user-images.githubusercontent.com/68065313/140671154-d2c71cc8-c3f8-4b7d-a03c-9f664739c71d.png width="500" height="400"/>
 
 - 이에 따라 MZ세대를 설득하는 것이 성공적인 식용 곤충 대중화를 위한 최우선 과제로 나타남
 
