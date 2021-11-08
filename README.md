@@ -34,7 +34,7 @@
 
 - ‘에코워리어’, ‘그린슈머’, ‘제로웨이스트 챌린지’ 등 MZ세대를 중심으로 나타나는 소비 트렌드는 MZ세대의 미래 환경 관심도가 높다는 것을 나타냄
 
-<img src = https://user-images.githubusercontent.com/68065313/140671154-d2c71cc8-c3f8-4b7d-a03c-9f664739c71d.png width="500" height="300"/>
+<img src = https://user-images.githubusercontent.com/68065313/140671154-d2c71cc8-c3f8-4b7d-a03c-9f664739c71d.png width="500" height="450"/>
 
 - 이에 따라 MZ세대를 설득하는 것이 성공적인 식용 곤충 대중화를 위한 최우선 과제로 나타남
 
