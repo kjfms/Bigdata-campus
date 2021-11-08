@@ -15,7 +15,7 @@
 
 - 이러한 미래 식량 부족 문제의 대안으로, '식용 곤충'이 크게 부각되고 있으며, 전세계 뿐 아니라 국내에서도 식용곤충에 대한 관심과 시장은 확대되는 추세 
 
-<img src = https://user-images.githubusercontent.com/68065313/140670355-b3fac443-2e15-49c0-b6be-5b77e327f1b7.png width="500" height="300"/>
+<p align="center"><img src = https://user-images.githubusercontent.com/68065313/140670355-b3fac443-2e15-49c0-b6be-5b77e327f1b7.png width="500" height="300"/>
 
 
 ##### 식용 곤충에 대한 부정적 인식
