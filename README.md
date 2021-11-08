@@ -50,4 +50,4 @@
 ### 2. 분석 준비
 
 ##### 분석 개요
-<p align="center"><img src =https://user-images.githubusercontent.com/82136585/140672780-b5a68280-86ad-4cb2-88a3-a67b79e8a794.PNG width="500" height="500"/>
+<p align="center"><img src =https://user-images.githubusercontent.com/82136585/140672780-b5a68280-86ad-4cb2-88a3-a67b79e8a794.PNG width="500" height="1000"/>
