@@ -50,5 +50,8 @@
 
 ## 2. 분석 준비
 
-##### 분석 개요
+#### 분석 개요
 <p align="center"><img src =https://user-images.githubusercontent.com/82136585/140672780-b5a68280-86ad-4cb2-88a3-a67b79e8a794.PNG width="1000" height="500"/>
+  
+#### (1) 군집분석을 통한 행정동 선정
+- 단일 예측 모형보다 더 나은 일반화된 결과를 도출하기 위해 K-means, K-mediods, GMM Clustering 모델을 활용해 
