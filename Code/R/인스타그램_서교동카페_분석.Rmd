@@ -1,0 +1,137 @@
+---
+title: "인스타그램_서교동카페_분석"
+author: 'kuma987'
+date: "`r format(Sys.time(), '%Y년 %B %d일')`"
+output:
+  html_document: 
+    fig_height: 6
+    fig_width: 10
+    highlight: textmate
+    toc: yes
+    toc_float: yes
+  word_document:
+    highlight: tango
+    reference_docx: korean-template.docx
+  pdf_document:
+    latex_engine: xelatex
+mainfont: NanumGothic
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 필요 패키지 불러오기
+```{r, include=FALSE}
+pkgs <- c('tidyverse','tidytext','KoNLP','plyr','wordcloud2','multilinguer','reshape2','rJava','htmlwidgets')
+for (pkg in pkgs) if (!pkg %in% installed.packages()[,1]) installed.packages(pkg)
+invisible (lapply(pkgs,library,character.only=T))
+```
+
+## 형태소 사전 불러오기
+```{r}
+useNIADic()
+```
+
+## 데이터 전처리
+
+### 문자 데이터 불러오기
+```{r}
+raw_cafe <- read.csv('C:/Users/user/Desktop/자유주제/R 코드/instagram/raw/cafe.csv',stringsAsFactors = F)
+raw_cafe <- unique(raw_cafe)
+```
+
+### 내용에 '협찬', '홍보', '광고', '이벤트', '문의'가 들어간 광고성 게시글 제거하기
+```{r}
+m <- raw_cafe$caption_text
+ad_index <- str_detect(m,'협찬') |str_detect(m,'홍보') | str_detect(m,'광고') | str_detect(m,'이벤트') | str_detect(m,'문의')
+refine_cafe <- raw_cafe[!ad_index,]
+```
+
+### 직접 데이터 탐색 후, 가게이름이나 카페 사장님 계정으로 작성된 글 제거하기
+```{r}
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='sorimcoffee'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='iam.tiramisu'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='agitri__'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='kyul_k'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='dolls_mam'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='chagok_patisserie'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='agit_jack'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='morak_official'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='cafe_samesame'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='estevan_yoo'),]
+refine_cafe <- refine_cafe[-which(refine_cafe$username=='x_x_x_review'),]
+```
+
+
+## 게시글 텍스트 분석
+
+```{r,include=FALSE}
+#해시태그를 제외한 특수문자 제거
+refine_m <- refine_cafe$caption_text
+html_rm <- c("class", "alt", "h1", "img", "div", "sizes",
+             "srcset", "span", "header", "jpg", "style",
+             "css", "com", "http", "tagged", "javascript", "src", "script")
+cafe_ht01 <- str_replace_all(refine_m, "[<>,.?/=\"\':;*&^%$@!~]", "")
+cafe_ht02 <- str_replace_all(cafe_ht01, html_rm, "")
+
+```
+
+
+```{r,include=FALSE}
+#게시글에서 명사만 추출
+cafe_ht03 <- extractNoun(cafe_ht02)
+```
+
+```{r,include=FALSE}
+#해시태그가 포함된 게시글의 index 추출
+cafe_ht04 <- grep("#", cafe_ht03)
+str(cafe_ht04)
+```
+
+
+```{r,include=FALSE}
+#해시태그를 제거하고 2글자 이상 20글자 이하인 단어만 남기기
+cafe_ht05 <- cafe_ht03[cafe_ht04]
+for (i in 1:NROW(cafe_ht05)) {
+  cafe_ht05[[i]] <- grep('\\#',cafe_ht05[[i]],value=T)
+}
+cafe_comment <- unlist(str_split(unlist(cafe_ht05),pattern='#'))
+cafe_comment <- cafe_comment[which(nchar(cafe_comment) >=2)]
+cafe_comment <- cafe_comment[which(nchar(cafe_comment) <= 20)]
+```
+
+
+```{r}
+#분석 결과
+cafe_df <- as.data.frame(cafe_comment)
+colnames(cafe_df) <- 'word'
+cafe_df$word <- replace(cafe_df$word,cafe_df$word=='서교동카','서교동카페')
+cafe_df$word <- replace(cafe_df$word,cafe_df$word=='서교동베이커','서교동베이커리')
+cafe_freq <- table(cafe_df)
+cafe_freq <- sort(cafe_freq,decreasing = T)
+head(cafe_freq,20)
+#특정 장소를 한정짓기 부적절해 태그보다는, 작성자 위치로 파악
+```
+
+
+
+## 장소 분석
+```{r}
+cafe_loc <- refine_cafe$location
+cafe_loc <- cafe_loc[which(nchar(cafe_loc) >= 2)]
+cafe_loc_df <- as.data.frame(cafe_loc)
+colnames(cafe_loc_df) <- 'loc'
+cafe_loc_freq <- table(cafe_loc_df)
+cafe_loc_freq <- sort(cafe_loc_freq,decreasing = T)
+loc_cloud <- wordcloud2(cafe_loc_freq, fontFamily = '나눔바른고딕', size=0.5)
+```
+
+```{r}
+#분석 결과
+head(cafe_loc_freq,10)
+loc_cloud
+```
+
+
+```
